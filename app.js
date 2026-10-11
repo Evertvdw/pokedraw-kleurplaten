@@ -21,13 +21,14 @@ function save(){localStorage.setItem('sel',JSON.stringify(sel))}
 function renderGrid(){const q=$('q').value.trim().toLowerCase(),st=$('set').value,se=$('season').value;
   const list=CARDS.filter(c=>(!q||c.name.toLowerCase().includes(q))&&(!st||c.set===st)&&(!se||c.seasons.includes(+se)));
   $('count').textContent=list.length+' plaatjes';
-  $('grid').innerHTML=list.map(c=>`<div class="card${sel.includes(c.id)?' on':''}" data-id="${c.id}" title="${c.info||''}"><div class="badge">${sel.filter(x=>x===c.id).length||''}</div><img data-src="${c.thumb}" alt="${c.name}"><div class="n">${c.name}</div><div class="s">${setName(c.set)} #${c.number}${c.seasons.length?' · S'+c.seasons.join(', S'):''}</div></div>`).join('')||'<p>Niets gevonden 😢</p>';hydrate()}
+  $('grid').innerHTML=list.map(c=>`<div class="card${sel.includes(c.id)?' on':''}" data-id="${c.id}" title="${c.info||''}"><div class="badge">${sel.filter(x=>x===c.id).length||''}</div><img width="2199" height="3072" data-src="${c.thumb}" alt="${c.name}"><div class="n">${c.name}</div><div class="s">${setName(c.set)} #${c.number}${c.seasons.length?' · S'+c.seasons.join(', S'):''}</div></div>`).join('')||'<p>Niets gevonden 😢</p>';hydrate()}
 function renderSel(){const by=Object.fromEntries(CARDS.map(c=>[c.id,c]));sel=sel.filter(i=>by[i]);
   $('selcount').textContent='('+sel.length+')';$('barcount').textContent=sel.length;$('empty').hidden=sel.length>0;$('pdf').disabled=!sel.length;
   $('sel').innerHTML=sel.map((id,i)=>`<li><img data-src="${by[id].thumb}"><span>${by[id].name}</span><button data-a="up" data-i="${i}" title="Omhoog">⬆️</button><button data-a="down" data-i="${i}" title="Omlaag">⬇️</button><button data-a="del" data-i="${i}" title="Weg">❌</button></li>`).join('');hydrate();save()}
-$('grid').onclick=e=>{const c=e.target.closest('.card');if(!c)return;const id=c.dataset.id,k=sel.indexOf(id);k<0?sel.push(id):sel.splice(k,1);renderSel();renderGrid()};
+$('grid').onclick=e=>{const c=e.target.closest('.card');if(!c)return;const id=c.dataset.id,k=sel.indexOf(id);k<0?sel.push(id):sel.splice(k,1);renderSel();marks()};
+function marks(){document.querySelectorAll('#grid .card').forEach(c=>{const n=sel.filter(x=>x===c.dataset.id).length;c.classList.toggle('on',n>0);c.querySelector('.badge').textContent=n||''})}
 $('sel').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i,a=b.dataset.a;
-  if(a==='del')sel.splice(i,1);else{const j=a==='up'?i-1:i+1;if(j<0||j>=sel.length)return;[sel[i],sel[j]]=[sel[j],sel[i]]}renderSel();renderGrid()};
+  if(a==='del')sel.splice(i,1);else{const j=a==='up'?i-1:i+1;if(j<0||j>=sel.length)return;[sel[i],sel[j]]=[sel[j],sel[i]]}renderSel();marks()};
 $('clear').onclick=()=>{if(confirm('Printlijst leegmaken?')){sel=[];renderSel();renderGrid()}};
 ['q','set','season'].forEach(i=>$(i).addEventListener('input',()=>{$('fbadge').hidden=!($('set').value||$('season').value);renderGrid()}));
 $('ftoggle').onclick=()=>{const o=document.querySelector('header').classList.toggle('fopen');$('ftoggle').setAttribute('aria-expanded',o)};

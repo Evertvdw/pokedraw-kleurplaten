@@ -55,3 +55,4 @@ html{-webkit-text-size-adjust:100%}body{overflow-x:hidden}
   aside h2{font-size:1.3em;line-height:44px;position:sticky;top:-14px;background:#fff;margin:-14px -14px 8px;padding:6px 14px}
   #sel{padding-left:18px}#sel li{gap:4px}#sel img{width:44px}#sel span{font-size:15px;overflow-wrap:anywhere}
 }
+.card img{display:block;height:auto}#grid{overflow-anchor:none}
