@@ -20,3 +20,38 @@ button.big:disabled{background:#aaa}#clear{font:inherit;border:none;background:n
 .gatebox{background:#fff;padding:30px;border-radius:22px;text-align:center}.gatebox input,.gatebox button{font-size:1.3em;padding:8px;margin:4px}
 @media(max-width:800px){main{flex-direction:column}aside{width:auto;position:static;max-height:none}}
 [hidden]{display:none!important}
+/* ---- mobiel / responsive ---- */
+html{-webkit-text-size-adjust:100%}body{overflow-x:hidden}
+#fsheet{display:contents}#ftoggle,#bar,#pclose{display:none}
+.card img:not([src]){background:#f3f3f3 linear-gradient(90deg,#f3f3f3,#fafafa,#f3f3f3);background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.layout label{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 6px;cursor:pointer}.layout input{width:22px;height:22px}
+#sel button{min-width:44px;min-height:44px}#clear{min-height:44px}
+#pdfout{display:flex;flex-direction:column}a.big{display:block;text-align:center;text-decoration:none;box-sizing:border-box;width:100%;font-size:1.5em;padding:14px;border-radius:30px;background:#3d7dca;color:#fff;margin:8px 0}
+#pdfshare{background:#2a9d4b}
+#pwform{display:flex;flex-direction:column;gap:8px}.gatebox input,.gatebox button{font-size:18px;min-height:48px;border-radius:14px;border:3px solid #3d7dca;padding:8px 14px}
+.gatebox button{background:#e3350d;color:#fff;border:none}
+@media(max-width:800px){
+  header{padding:8px 10px calc(8px) 10px;border-bottom-width:4px}
+  h1{font-size:1.25em;margin:0 0 6px}
+  .filters{gap:6px;flex-wrap:wrap}
+  input[type=search]{min-width:0;flex:1 1 0;font-size:16px;padding:10px 14px;min-height:44px}
+  #ftoggle{display:block;font:inherit;font-size:16px;min-height:44px;padding:0 14px;border-radius:30px;border:3px solid #3d7dca;background:#fff;color:#2a5aa8}
+  #fbadge{color:#e3350d;font-weight:bold;margin-left:2px}
+  #fsheet{display:none;width:100%;flex-direction:column;gap:6px}header.fopen #fsheet{display:flex}
+  #fsheet select{width:100%;font-size:16px;min-height:44px}
+  #count{width:100%;font-size:13px;text-align:right;margin-top:-2px}header:not(.fopen) #count{display:none}
+  main{padding:10px;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  #grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:6px;border-width:3px;border-radius:16px}.card:hover{transform:none}
+  .card .n{font-size:1.05em;overflow-wrap:anywhere}.card .s{font-size:13px}
+  .badge{width:32px;height:32px;line-height:32px;font-size:1.1em;top:4px;right:4px}
+  #bar{display:flex;position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:20;align-items:center;gap:8px;min-height:56px;padding:0 18px;border:none;border-radius:30px;background:#e3350d;color:#fff;font:inherit;font-size:17px;box-shadow:0 4px 14px #0004}
+  #bar b{background:#fff;color:#e3350d;border-radius:20px;min-width:30px;padding:2px 8px}#bar span{margin-left:auto;font-size:15px}
+  aside#panel{display:none;position:fixed;inset:0;align-self:stretch;height:auto;top:env(safe-area-inset-top);z-index:30;width:auto;max-height:none;border-radius:22px 22px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain;margin:0}
+  body.sheet aside#panel{display:block;animation:up .2s ease-out}body.sheet{overflow:hidden}
+  @keyframes up{from{transform:translateY(40px);opacity:.5}}
+  #pclose{display:block;float:right;width:44px;height:44px;border:none;border-radius:50%;background:#eef;font-size:20px;cursor:pointer}
+  aside h2{font-size:1.3em;line-height:44px;position:sticky;top:-14px;background:#fff;margin:-14px -14px 8px;padding:6px 14px}
+  #sel{padding-left:18px}#sel li{gap:4px}#sel img{width:44px}#sel span{font-size:15px;overflow-wrap:anywhere}
+}
