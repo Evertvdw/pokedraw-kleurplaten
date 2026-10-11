@@ -1,0 +1,15 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pokémon Kleurplaten</title><link rel="stylesheet" href="style.css"></head><body>
+<div id="gate" hidden><div class="gatebox"><h2>🔒 Wachtwoord</h2><input id="pw" type="password" placeholder="Wachtwoord"><button id="pwok">Open</button><p id="pwerr" class="small" style="color:#c00" hidden>❌ Verkeerd wachtwoord, probeer het opnieuw.</p></div></div>
+<header><h1>🎨 Pokémon Kleurplaten</h1>
+<div class="filters"><input id="q" type="search" placeholder="🔍 Zoek een Pokémon…">
+<select id="set"><option value="">Alle sets</option></select>
+<select id="season"><option value="">Alle seizoenen</option><option value="1">Seizoen 1</option><option value="2">Seizoen 2</option><option value="3">Seizoen 3</option><option value="4">Seizoen 4</option></select>
+<span id="count"></span></div></header>
+<main><section id="grid"></section>
+<aside id="panel"><h2>🖨️ Printlijst <span id="selcount">(0)</span></h2>
+<div class="layout">Per A4-vel:
+<label><input type="radio" name="lay" value="1">1</label><label><input type="radio" name="lay" value="2">2</label><label><input type="radio" name="lay" value="4" checked>4</label></div>
+<ol id="sel"></ol><p id="empty">Klik op een plaatje om het toe te voegen!</p>
+<button id="pdf" class="big">📄 Maak PDF</button><button id="clear">Alles weg</button><p id="status"></p></aside></main>
+<script src="vendor/jspdf.umd.min.js"></script><script src="app.js"></script></body></html>

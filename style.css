@@ -1,0 +1,22 @@
+*{box-sizing:border-box}body{margin:0;font-family:"Comic Sans MS","Chalkboard SE",system-ui,sans-serif;background:#fff8d6;color:#333}
+header{background:#ffcb05;border-bottom:6px solid #3d7dca;padding:12px 20px;position:sticky;top:0;z-index:5}
+h1{margin:0 0 8px;color:#2a5aa8;font-size:2.2em;text-shadow:2px 2px #fff}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=search],select{font:inherit;font-size:1.2em;padding:10px 14px;border-radius:30px;border:3px solid #3d7dca;background:#fff}
+input[type=search]{flex:1;min-width:220px}#count{font-weight:bold}
+main{display:flex;gap:16px;padding:16px}#grid{flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;align-content:start}
+.card{background:#fff;border:4px solid #fff;border-radius:22px;box-shadow:0 4px 10px #0002;cursor:pointer;padding:10px;text-align:center;transition:transform .1s;position:relative}
+.card:hover{transform:scale(1.04);border-color:#ffcb05}.card.on{border-color:#e3350d;background:#ffe9e4}
+.card img{width:100%;border-radius:12px;aspect-ratio:2199/3072;object-fit:contain;background:#fff}
+.card .n{font-size:1.3em;font-weight:bold;margin-top:6px}.card .s{font-size:.85em;color:#777}
+.badge{position:absolute;top:8px;right:8px;background:#e3350d;color:#fff;border-radius:50%;width:40px;height:40px;font-size:1.4em;line-height:40px;display:none}.card.on .badge{display:block}
+aside{width:330px;background:#fff;border-radius:22px;padding:14px;box-shadow:0 4px 10px #0002;position:sticky;top:150px;align-self:start;max-height:calc(100vh - 170px);overflow:auto}
+aside h2{margin:0 0 8px;color:#2a5aa8}.layout{font-size:1.2em;margin-bottom:8px}.layout label{margin-left:10px}
+#sel{padding-left:22px}#sel li{display:flex;align-items:center;gap:6px;margin:6px 0}#sel img{width:48px;border:1px solid #ccc;border-radius:6px}#sel span{flex:1}
+#sel button{font-size:1.1em;border:none;background:#eef;border-radius:8px;cursor:pointer;padding:4px 8px}
+button.big{width:100%;font:inherit;font-size:1.5em;padding:14px;border:none;border-radius:30px;background:#e3350d;color:#fff;cursor:pointer;margin:8px 0}
+button.big:disabled{background:#aaa}#clear{font:inherit;border:none;background:none;color:#888;cursor:pointer;text-decoration:underline}
+.small{font-size:.8em;color:#888}#gate{position:fixed;inset:0;background:#ffcb05;z-index:99;display:flex;align-items:center;justify-content:center}
+.gatebox{background:#fff;padding:30px;border-radius:22px;text-align:center}.gatebox input,.gatebox button{font-size:1.3em;padding:8px;margin:4px}
+@media(max-width:800px){main{flex-direction:column}aside{width:auto;position:static;max-height:none}}
+[hidden]{display:none!important}
